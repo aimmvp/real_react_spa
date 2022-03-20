@@ -1,4 +1,4 @@
-import React, {createContext, useCallback} from "react";
+import React, {createContext, useState, useCallback, useRef } from "react";
 
 const TodoContext = createContext( {
     state : { todos: [], input : "" },
@@ -77,5 +77,5 @@ const TodoProvider = ( { children }) => {
 
 const { Consumer: TodoConsumer } = TodoContext;
 
-export { TodoProvider, TOdoConsumer };
+export { TodoProvider, TodoConsumer };
 export default TodoContext;
