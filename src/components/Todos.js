@@ -9,14 +9,27 @@ import TodoHeader from "./TodoHeader";
 import { TodoProvider } from "../contexts/todo";
 
 // Provider 사용
-const Todos = () => {
+const Todos = ({
+    input,
+    todos,
+    onChangeInput,
+    onInsert,
+    onToggle,
+    onRemove,
+    onClearAll,
+}) => {
     return (
-        <TodoProvider>
+        <div>
             <TodoHeader/>
-            <TodoInput/>
-            <TodoList/>
-            <TodoFooter/>
-        </TodoProvider>
+            <TodoInput
+                input={input}
+                onInsert={onInsert}
+                onChangeInput={onChangeInput}
+            ></TodoInput>
+            <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}/>
+            <TodoFooter onClearAll={onClearAll}/>
+        </div>
     );
 };
+
 export default Todos;

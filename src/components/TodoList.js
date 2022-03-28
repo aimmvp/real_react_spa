@@ -5,16 +5,16 @@ import styles from "../Todo.module.css";
 
 import TodoContext from "../contexts/todo";
 
-const TodoList = () => {
+const TodoList = ( { todos, onRemove, onToggle }) => {
     const { state, actions } = useContext(TodoContext);
     return (
         <div className={styles.list}>
-            {state.todos.map((todo) => (
+            {todos.map((todo) => (
                 <TodoItem
                     todo={todo}
                     key={todo.id}
-                    onRemove={actions.onRemove}
-                    onToggle={actions.onToggle}
+                    onRemove={onRemove}
+                    onToggle={onToggle}
                 />
             ))}
         </div>
